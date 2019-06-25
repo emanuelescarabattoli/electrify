@@ -1,0 +1,31 @@
+{
+  "name": "electrify",
+  "version": "0.0.1",
+  "homepage": "https://github.com/emanuelescarabattoli/electrify",
+  "author": {
+    "name": "Emanuele Scarabattoli",
+    "email": "em.scarabattoli@gmail.com",
+    "url": "https://github.com/emanuelescarabattoli"
+  },
+  "description": "Electrify",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanuelescarabattoli/electrify.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/emanuelescarabattoli/electrify/issues"
+  },
+  "devDependencies": {
+    "electron": "^5.0.5"
+  },
+  "dependencies": {},
+  "scripts": {
+    "start": "electron ./src"
+  }
+}
