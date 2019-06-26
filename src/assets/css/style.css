@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
-
 html,
 body {
     margin: 0;
-    padding: 0;
+    padding: 0rem;
     background-color: #e0e0e0;
-    font-family: "Open Sans";
     color: #222222;
+    font-family: sans-serif
 }
 
 .page {

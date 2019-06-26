@@ -24,10 +24,17 @@
         Page two
     </div>
 
+    <script>
+
+        window.$ = window.jQuery = require("jquery");
+
+    </script>
 
     <script>
 
-        document.getElementById("home").style.display = "block";
+        $(() => {
+            $("#home").show();
+        });
 
     </script>
 
