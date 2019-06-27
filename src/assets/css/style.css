@@ -1,7 +1,7 @@
 html,
 body {
     margin: 0;
-    padding: 0rem;
+    padding: 0;
     background-color: #e0e0e0;
     color: #222222;
     font-family: sans-serif
@@ -9,4 +9,17 @@ body {
 
 .page {
     display: none;
+}
+
+.content {
+    margin: 0;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 4rem 1fr;
+    grid-column-gap: 1rem;
+    background-color: 
+}
+
+.menu {
+
 }
