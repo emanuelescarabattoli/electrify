@@ -15,59 +15,116 @@
 <body>
 
     <div class="page" id="home">
-        <div class="content">
-            foo
+        <div class="page-left">
+            <div class="page-left-content">
+                <div class="spinner">
+                    <div class="spinner-arrow">
+                        <i class="fas fa-caret-up"></i>
+                    </div>
+                    <div class="spinner-value">
+                        24°
+                    </div>
+                    <div class="spinner-arrow">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="menu">
-            <div class="menu-items">
-                <div class="menu-item is-active">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="menu-item-content-text">
-                            Home
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-icon">
-                            <i class="fas fa-thermometer-three-quarters"></i>
-                        </div>
-                        <div class="menu-item-content-text">
-                            Temperature
+        <div class="page-center">
+            <div class="page-center-content">
+                <div class="submenu">
+                    <div class="submenu-content">
+                        <div class="submenu-content-items">
+                            <div class="submenu-content-item is-active">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="submenu-content-item">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="submenu-content-item">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="submenu-content-item">
+                                <i class="fas fa-power-off"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="menu-item-content-text">
-                            Lights
-                        </div>
+            </div>
+        </div>
+        <div class="page-right">
+            <div class="page-right-content">
+                <h2 class="title">Information</h2>
+                <h3 class="subtitle">Here you can find information about the system</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="temperature">
+        The temperature page
+    </div>
+
+    <div class="page" id="lights">
+        The lights page
+    </div>
+
+    <div class="page" id="panels">
+        The panels page
+    </div>
+
+    <div class="page" id="administration">
+        The administration page
+    </div>
+
+    <div class="menu">
+        <div class="menu-items">
+            <div class="menu-item is-active" id="home-button">
+                <div class="menu-item-content">
+                    <div class="menu-item-content-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="menu-item-content-text">
+                        Home
                     </div>
                 </div>
-                <div class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-icon">
-                            <i class="fas fa-solar-panel"></i>
-                        </div>
-                        <div class="menu-item-content-text">
-                            Panels
-                        </div>
+            </div>
+            <div class="menu-item" id="temperature-button">
+                <div class="menu-item-content">
+                    <div class="menu-item-content-icon">
+                        <i class="fas fa-thermometer-three-quarters"></i>
+                    </div>
+                    <div class="menu-item-content-text">
+                        Temperature
                     </div>
                 </div>
-                <div class="menu-item">
-                    <div class="menu-item-content">
-                        <div class="menu-item-content-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <div class="menu-item-content-text">
-                            Administration
-                        </div>
+            </div>
+            <div class="menu-item" id="lights-button">
+                <div class="menu-item-content">
+                    <div class="menu-item-content-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="menu-item-content-text">
+                        Lights
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item" id="panels-button">
+                <div class="menu-item-content">
+                    <div class="menu-item-content-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="menu-item-content-text">
+                        Panels
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item" id="administration-button">
+                <div class="menu-item-content">
+                    <div class="menu-item-content-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="menu-item-content-text">
+                        Administration
                     </div>
                 </div>
             </div>
@@ -83,7 +140,42 @@
     <script>
 
         $(() => {
-            $("#home").show();
+            $("#home").css("display", "grid");
+
+            $("#home-button").click(() => {
+                $(".page").css("display", "none");
+                $(".menu-item").removeClass("is-active");
+                $("#home").css("display", "grid");
+                $("#home-button").addClass("is-active");
+            });
+
+            $("#temperature-button").click(() => {
+                $(".page").css("display", "none");
+                $(".menu-item").removeClass("is-active");
+                $("#temperature").css("display", "grid");
+                $("#temperature-button").addClass("is-active");
+            });
+
+            $("#lights-button").click(() => {
+                $(".page").css("display", "none");
+                $(".menu-item").removeClass("is-active");
+                $("#lights").css("display", "grid");
+                $("#lights-button").addClass("is-active");
+            });
+
+            $("#panels-button").click(() => {
+                $(".page").css("display", "none");
+                $(".menu-item").removeClass("is-active");
+                $("#panels").css("display", "grid");
+                $("#panels-button").addClass("is-active");
+            });
+
+            $("#administration-button").click(() => {
+                $(".page").css("display", "none");
+                $(".menu-item").removeClass("is-active");
+                $("#administration").css("display", "grid");
+                $("#administration-button").addClass("is-active");
+            });
         });
 
     </script>
