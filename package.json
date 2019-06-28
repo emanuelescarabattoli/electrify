@@ -22,12 +22,16 @@
     "url": "https://github.com/emanuelescarabattoli/electrify/issues"
   },
   "devDependencies": {
-    "electron": "^5.0.5"
+    "electron": "^5.0.5",
+    "electron-installer-debian": "^2.0.0",
+    "electron-packager": "^14.0.0"
   },
   "dependencies": {
     "jquery": "^3.4.1"
   },
   "scripts": {
-    "start": "electron ./src"
+    "start": "electron ./src",
+    "build": "electron-packager . electrify --platform=linux --arch=armv7l --out=./dist --overwrite",
+    "installer": "electron-installer-debian --src ./dist/electrify-linux-armv7l/ --dest ./dist/installers/ --arch armv7l"
   }
 }
