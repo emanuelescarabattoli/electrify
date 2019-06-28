@@ -2,24 +2,77 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
     background-color: #e0e0e0;
     color: #222222;
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 .page {
     display: none;
+    height: 100%;
 }
 
 .content {
     margin: 0;
-    padding: 2rem;
+    padding: 0;
     display: grid;
+    height: 75%;
     grid-template-columns: 1fr 4rem 1fr;
     grid-column-gap: 1rem;
-    background-color: 
+    background: radial-gradient(ellipse at bottom, #121d2b 0%, #000000 100%);
 }
 
 .menu {
+    margin: 0;
+    padding: 0;
+    height: calc(25% - 2px);
+    background-color: #0b131c;
+    border-top: solid 2px #192737;
+}
 
+.menu-items {
+    margin: 0 auto;
+    padding: 0;
+    width: 60%;
+    height: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+}
+
+.menu-item {
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    height: calc(100% - 4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 4px transparent;
+    color: #2e4158;
+}
+
+.menu-item-content {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-item-content-icon {
+    margin: 2rem 0 0 0;
+    padding: 0;
+    font-size: 6em;
+}
+
+.menu-item-content-text {
+    margin: 0.8rem 0 0 0;
+    padding: 0;
+    font-size: 1.4em;
+}
+
+.menu-item.is-active {
+   border-bottom: solid 4px #ff9300;
+   background: linear-gradient(transparent 0%, #1b2a3c 100%);
+   color: #476182;
 }

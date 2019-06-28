@@ -1,7 +1,7 @@
 const { app, BrowserWindow, Menu, ipcMain } = require("electron");
 const path = require("path");
 
-Menu.setApplicationMenu(null);
+// Menu.setApplicationMenu(null);
 
 // When the app is ready, a window is opened with the index page loaded
 app.on("ready", () => {
