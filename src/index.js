@@ -6,13 +6,14 @@ const path = require("path");
 // When the app is ready, a window is opened with the index page loaded
 app.on("ready", () => {
     const index = new BrowserWindow({
-        width: 1000,
-        height: 700,
+        width: 800,
+        height: 480,
         webPreferences: {
             nodeIntegration: true,
             devTools: true
         },
-        fullscreen: true
+        fullscreen: true,
+        frame: false
     });
 
     // Here we load the index page of the application
