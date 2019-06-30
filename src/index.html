@@ -14,18 +14,33 @@
 
 <body>
 
-    <div class="page" id="home">
+    <div class="page" id="outdoor">
         <div class="page-left">
             <div class="page-left-content">
-                <div class="spinner">
-                    <div class="spinner-arrow">
-                        <i class="fas fa-caret-up"></i>
+                <div id="outdoor-lights">
+                    <div class="box is-active" id="outdoor-light-group-one">
+                        <div class="box-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="box-content">
+                            First group lights
+                        </div>
                     </div>
-                    <div class="spinner-value">
-                        24°
+                    <div class="box" id="outdoor-light-group-one">
+                        <div class="box-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="box-content">
+                            Second group lights
+                        </div>
                     </div>
-                    <div class="spinner-arrow">
-                        <i class="fas fa-caret-down"></i>
+                    <div class="box" id="outdoor-light-group-one">
+                        <div class="box-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="box-content">
+                            Gate lights
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,17 +50,17 @@
                 <div class="submenu">
                     <div class="submenu-content">
                         <div class="submenu-content-items">
-                            <div class="submenu-content-item is-active">
-                                <i class="fas fa-info-circle"></i>
+                            <div class="submenu-content-item is-active" id="outdoor-menu-light-groups">
+                                <i class="fas fa-lightbulb"></i>
                             </div>
-                            <div class="submenu-content-item">
-                                <i class="fas fa-cubes"></i>
+                            <div class="submenu-content-item" id="outdoor-menu-light-shield">
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <div class="submenu-content-item">
-                                <i class="fas fa-cogs"></i>
+                            <div class="submenu-content-item" id="outdoor-menu-temperature">
+                                <i class="fas fa-thermometer-half"></i>
                             </div>
-                            <div class="submenu-content-item">
-                                <i class="fas fa-power-off"></i>
+                            <div class="submenu-content-item" id="outdoor-menu-gate">
+                                <i class="fas fa-dungeon"></i>
                             </div>
                         </div>
                     </div>
@@ -60,16 +75,16 @@
         </div>
     </div>
 
-    <div class="page" id="temperature">
-        The temperature page
+    <div class="page" id="itemThree">
+        The itemThree page
     </div>
 
-    <div class="page" id="lights">
-        The lights page
+    <div class="page" id="itemOne">
+        The itemOne page
     </div>
 
-    <div class="page" id="panels">
-        The panels page
+    <div class="page" id="itemTwo">
+        The itemTwo page
     </div>
 
     <div class="page" id="administration">
@@ -78,43 +93,43 @@
 
     <div class="menu">
         <div class="menu-items">
-            <div class="menu-item is-active" id="home-button">
+            <div class="menu-item is-active" id="outdoor-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-tree"></i>
                     </div>
                     <div class="menu-item-content-text">
-                        Home
+                        Outdoor
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="temperature-button">
+            <div class="menu-item" id="itemOne-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
-                        <i class="fas fa-thermometer-three-quarters"></i>
+                        <i class="fas fa-cube"></i>
                     </div>
                     <div class="menu-item-content-text">
-                        Temperature
+                        Item
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="lights-button">
+            <div class="menu-item" id="itemTwo-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
-                        <i class="fas fa-lightbulb"></i>
+                        <i class="fas fa-cube"></i>
                     </div>
                     <div class="menu-item-content-text">
-                        Lights
+                        Item
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="panels-button">
+            <div class="menu-item" id="itemThree-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
-                        <i class="fas fa-solar-panel"></i>
+                        <i class="fas fa-cube"></i>
                     </div>
                     <div class="menu-item-content-text">
-                        Panels
+                        Item
                     </div>
                 </div>
             </div>
@@ -140,34 +155,34 @@
     <script>
 
         $(() => {
-            $("#home").css("display", "grid");
+            $("#outdoor").css("display", "grid");
 
-            $("#home-button").click(() => {
+            $("#outdoor-button").click(() => {
                 $(".page").css("display", "none");
                 $(".menu-item").removeClass("is-active");
-                $("#home").css("display", "grid");
-                $("#home-button").addClass("is-active");
+                $("#outdoor").css("display", "grid");
+                $("#outdoor-button").addClass("is-active");
             });
 
-            $("#temperature-button").click(() => {
+            $("#itemThree-button").click(() => {
                 $(".page").css("display", "none");
                 $(".menu-item").removeClass("is-active");
-                $("#temperature").css("display", "grid");
-                $("#temperature-button").addClass("is-active");
+                $("#itemThree").css("display", "grid");
+                $("#itemThree-button").addClass("is-active");
             });
 
-            $("#lights-button").click(() => {
+            $("#itemOne-button").click(() => {
                 $(".page").css("display", "none");
                 $(".menu-item").removeClass("is-active");
-                $("#lights").css("display", "grid");
-                $("#lights-button").addClass("is-active");
+                $("#itemOne").css("display", "grid");
+                $("#itemOne-button").addClass("is-active");
             });
 
-            $("#panels-button").click(() => {
+            $("#itemTwo-button").click(() => {
                 $(".page").css("display", "none");
                 $(".menu-item").removeClass("is-active");
-                $("#panels").css("display", "grid");
-                $("#panels-button").addClass("is-active");
+                $("#itemTwo").css("display", "grid");
+                $("#itemTwo-button").addClass("is-active");
             });
 
             $("#administration-button").click(() => {
