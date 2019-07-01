@@ -16,44 +16,63 @@
 
     <div class="page" id="outdoor">
         <div class="page-left">
-            <div class="page-left-content">
-                <div id="outdoor-lights">
-                    <div class="box is-active" id="outdoor-light-group-one">
-                        <div class="box-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="box-content">
-                            First group lights
-                        </div>
+
+            <div class="page-left-content" id="outdoor-lights-left">
+                <div class="box" id="outdoor-light-group-one">
+                    <div class="box-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <div class="box" id="outdoor-light-group-one">
-                        <div class="box-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="box-content">
-                            Second group lights
-                        </div>
+                    <div class="box-content">
+                        First group lights
                     </div>
-                    <div class="box" id="outdoor-light-group-one">
-                        <div class="box-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="box-content">
-                            Gate lights
-                        </div>
+                </div>
+                <div class="box" id="outdoor-light-group-two">
+                    <div class="box-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="box-content">
+                        Second group lights
+                    </div>
+                </div>
+                <div class="box" id="outdoor-light-group-three">
+                    <div class="box-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="box-content">
+                        Gate lights
                     </div>
                 </div>
             </div>
+
+            <div class="page-left-content" id="outdoor-security-mode-left">
+                <div class="box" id="outdoor-security-mode-button">
+                    <div class="box-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="box-content">
+                        Lights security mode
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-left-content" id="outdoor-temperature-left">
+                Temperature
+            </div>
+
+            <div class="page-left-content" id="outdoor-gate-left">
+                Gate
+            </div>
+
         </div>
         <div class="page-center">
             <div class="page-center-content">
                 <div class="submenu">
                     <div class="submenu-content">
                         <div class="submenu-content-items">
-                            <div class="submenu-content-item is-active" id="outdoor-menu-light-groups">
+                            <div class="submenu-content-item" id="outdoor-menu-light-groups">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
-                            <div class="submenu-content-item" id="outdoor-menu-light-shield">
+                            <div class="submenu-content-item" id="outdoor-menu-security-mode">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <div class="submenu-content-item" id="outdoor-menu-temperature">
@@ -68,23 +87,44 @@
             </div>
         </div>
         <div class="page-right">
-            <div class="page-right-content">
+
+            <div class="page-right-content" id="outdoor-lights-right">
                 <h2 class="title">Information</h2>
                 <h3 class="subtitle">Here you can find information about the system</h3>
+                <span>Lights</span>
             </div>
+
+            <div class="page-right-content" id="outdoor-security-mode-right">
+                <h2 class="title">Information</h2>
+                <h3 class="subtitle">Here you can find information about the system</h3>
+                <span>Security mode</span>
+            </div>
+
+            <div class="page-right-content" id="outdoor-temperature-right">
+                <h2 class="title">Information</h2>
+                <h3 class="subtitle">Here you can find information about the system</h3>
+                <span>Temperature</span>
+            </div>
+
+            <div class="page-right-content" id="outdoor-gate-right">
+                <h2 class="title">Information</h2>
+                <h3 class="subtitle">Here you can find information about the system</h3>
+                <span>Gate</span>
+            </div>
+
         </div>
     </div>
 
-    <div class="page" id="itemThree">
-        The itemThree page
+    <div class="page" id="item-one">
+        The item-one page
     </div>
 
-    <div class="page" id="itemOne">
-        The itemOne page
+    <div class="page" id="item-two">
+        The item-two page
     </div>
 
-    <div class="page" id="itemTwo">
-        The itemTwo page
+    <div class="page" id="item-three">
+        The item-three page
     </div>
 
     <div class="page" id="administration">
@@ -103,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="itemOne-button">
+            <div class="menu-item" id="item-one-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
                         <i class="fas fa-cube"></i>
@@ -113,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="itemTwo-button">
+            <div class="menu-item" id="item-two-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
                         <i class="fas fa-cube"></i>
@@ -123,7 +163,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu-item" id="itemThree-button">
+            <div class="menu-item" id="item-three-button">
                 <div class="menu-item-content">
                     <div class="menu-item-content-icon">
                         <i class="fas fa-cube"></i>
@@ -155,43 +195,108 @@
     <script>
 
         $(() => {
-            $("#outdoor").css("display", "grid");
 
+            // When app is ready, the Outdoor page is displayed
+            showOutdoorPage();
+            showOutdoorLightsGroup();
+
+            // On click Outdoor button in menu, the Outdoor page is displayed
             $("#outdoor-button").click(() => {
-                $(".page").css("display", "none");
-                $(".menu-item").removeClass("is-active");
-                $("#outdoor").css("display", "grid");
-                $("#outdoor-button").addClass("is-active");
+                showOutdoorPage();
+                showOutdoorLightsGroup();
             });
 
-            $("#itemThree-button").click(() => {
-                $(".page").css("display", "none");
-                $(".menu-item").removeClass("is-active");
-                $("#itemThree").css("display", "grid");
-                $("#itemThree-button").addClass("is-active");
+            // On click Item One button in menu, the Item One page is displayed
+            $("#item-one-button").click(() => {
+                showItemOnePage();
             });
 
-            $("#itemOne-button").click(() => {
-                $(".page").css("display", "none");
-                $(".menu-item").removeClass("is-active");
-                $("#itemOne").css("display", "grid");
-                $("#itemOne-button").addClass("is-active");
+            // On click Item Two button in menu, the Item Two page is displayed
+            $("#item-two-button").click(() => {
+                showItemTwoPage();
             });
 
-            $("#itemTwo-button").click(() => {
-                $(".page").css("display", "none");
-                $(".menu-item").removeClass("is-active");
-                $("#itemTwo").css("display", "grid");
-                $("#itemTwo-button").addClass("is-active");
+            // On click Item Three button in menu, the Item Three page is displayed
+            $("#item-three-button").click(() => {
+                showItemThreePage();
             });
 
+            // On click Administration button in menu, the Administration page is displayed
             $("#administration-button").click(() => {
-                $(".page").css("display", "none");
-                $(".menu-item").removeClass("is-active");
-                $("#administration").css("display", "grid");
-                $("#administration-button").addClass("is-active");
+                showAdministrationPage();
             });
+
+            // On click Outdoor Lights Group button, the Outdoor Lights Group section is displayed
+            $("#outdoor-menu-light-groups").click(() => {
+                showOutdoorLightsGroup();
+            });
+
+            // On click Outdoor Security Mode button, the Outdoor Security Mode section is displayed
+            $("#outdoor-menu-security-mode").click(() => {
+                showOutdoorSecurityMode();
+            });
+
         });
+
+        // Shows the Outdoor page
+        const showOutdoorPage = () => {
+            $(".page").css("display", "none");
+            $(".menu-item").removeClass("is-active");
+            $("#outdoor").css("display", "grid");
+            $("#outdoor-button").addClass("is-active");
+        }
+
+        // Shows the Item One page
+        const showItemOnePage = () => {
+            $(".page").css("display", "none");
+            $(".menu-item").removeClass("is-active");
+            $("#item-one").css("display", "grid");
+            $("#item-one-button").addClass("is-active");
+        }
+
+        // Shows the Item Two page
+        const showItemTwoPage = () => {
+            $(".page").css("display", "none");
+            $(".menu-item").removeClass("is-active");
+            $("#item-two").css("display", "grid");
+            $("#item-two-button").addClass("is-active");
+        }
+
+        // Shows the Item Three page
+        const showItemThreePage = () => {
+            $(".page").css("display", "none");
+            $(".menu-item").removeClass("is-active");
+            $("#item-three").css("display", "grid");
+            $("#item-three-button").addClass("is-active");
+        }
+
+        // Shows the Administration page
+        const showAdministrationPage = () => {
+            $(".page").css("display", "none");
+            $(".menu-item").removeClass("is-active");
+            $("#administration").css("display", "grid");
+            $("#administration-button").addClass("is-active");
+        }
+
+        // Shows the Outdoor Lights section
+        const showOutdoorLightsGroup = () => {
+            $(".page-left-content").css("display", "none");
+            $(".page-right-content").css("display", "none");
+            $("#outdoor-lights-left").css("display", "block");
+            $("#outdoor-lights-right").css("display", "block");
+            $(".submenu-content-item").removeClass("is-active");
+            $("#outdoor-menu-light-groups").addClass("is-active");
+        }
+
+        // Shows the Outdoor Security Mode section
+        const showOutdoorSecurityMode = () => {
+            $(".page-left-content").css("display", "none");
+            $(".page-right-content").css("display", "none");
+            $("#outdoor-security-mode-left").css("display", "block");
+            $("#outdoor-security-mode-right").css("display", "block");
+            $(".submenu-content-item").removeClass("is-active");
+            $("#outdoor-menu-security-mode").addClass("is-active");
+        }
 
     </script>
 
