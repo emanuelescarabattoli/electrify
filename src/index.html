@@ -60,7 +60,14 @@
             </div>
 
             <div class="page-left-content" id="outdoor-gate-left">
-                Gate
+                <div class="box" id="outdoor-gate-button">
+                    <div class="box-icon">
+                        <i class="fas fa-dungeon"></i>
+                    </div>
+                    <div class="box-content">
+                        Main gate
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -236,6 +243,16 @@
                 showOutdoorSecurityMode();
             });
 
+            // On click Outdoor Temperature button, the Outdoor Temperature section is displayed
+            $("#outdoor-menu-temperature").click(() => {
+                showOutdoorTemperature();
+            });
+
+            // On click Outdoor Gate button, the Outdoor Gate section is displayed
+            $("#outdoor-menu-gate").click(() => {
+                showOutdoorGate();
+            });
+
         });
 
         // Shows the Outdoor page
@@ -296,6 +313,26 @@
             $("#outdoor-security-mode-right").css("display", "block");
             $(".submenu-content-item").removeClass("is-active");
             $("#outdoor-menu-security-mode").addClass("is-active");
+        }
+
+        // Shows the Outdoor Temperature section
+        const showOutdoorTemperature = () => {
+            $(".page-left-content").css("display", "none");
+            $(".page-right-content").css("display", "none");
+            $("#outdoor-temperature-left").css("display", "block");
+            $("#outdoor-temperature-right").css("display", "block");
+            $(".submenu-content-item").removeClass("is-active");
+            $("#outdoor-menu-temperature").addClass("is-active");
+        }
+
+        // Shows the Outdoor Gate section
+        const showOutdoorGate = () => {
+            $(".page-left-content").css("display", "none");
+            $(".page-right-content").css("display", "none");
+            $("#outdoor-gate-left").css("display", "block");
+            $("#outdoor-gate-right").css("display", "block");
+            $(".submenu-content-item").removeClass("is-active");
+            $("#outdoor-menu-gate").addClass("is-active");
         }
 
     </script>
