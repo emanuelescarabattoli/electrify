@@ -193,13 +193,12 @@
         </div>
     </div>
 
+
     <script>
+
+        const { ipcRenderer } = require("electron");
 
         window.$ = window.jQuery = require("jquery");
-
-    </script>
-
-    <script>
 
         $(() => {
 
@@ -253,6 +252,11 @@
                 showOutdoorGate();
             });
 
+            // Every 500 ms the state of sensors is updated
+            setInterval(readSensorsState, 500);
+
+            // Read the state from server
+            ipcRenderer.on("sensors-state-updated", state => alert("foo"));
         });
 
         // Shows the Outdoor page
@@ -333,6 +337,11 @@
             $("#outdoor-gate-right").css("display", "block");
             $(".submenu-content-item").removeClass("is-active");
             $("#outdoor-menu-gate").addClass("is-active");
+        }
+
+        // Ask to server to read sensors state
+        const readSensorsState = () => {
+            ipcRenderer.send("update-sensors-state")
         }
 
     </script>
