@@ -347,25 +347,28 @@
         // Starting from a given state the GUI is updated
         const updateSensorsState = (listener, state) => {
 
-            console.log(state)
-
+            // First of all it deactivate all sensors buttons
             $("#outdoor-light-group-one").removeClass("is-active");
             $("#outdoor-light-group-two").removeClass("is-active");
             $("#outdoor-light-group-three").removeClass("is-active");
             $("#outdoor-gate-button").removeClass("is-active");
 
+            // Activate Light Group One button if state is "ON"
             if (state.lightGroupOne === "ON") {
                 $("#outdoor-light-group-one").addClass("is-active");
             }
 
+            // Activate Light Group One button if state is "ON"
             if (state.lightGroupTwo === "ON") {
                 $("#outdoor-light-group-two").addClass("is-active");
             }
 
+            // Activate Light Group Three button if state is "ON"
             if (state.lightGroupThree === "ON") {
                 $("#outdoor-light-group-three").addClass("is-active");
             }
 
+            // Activate Gate button if state is "ON"
             if (state.gate === "ON") {
                 $("#outdoor-gate-button").addClass("is-active");
             }
