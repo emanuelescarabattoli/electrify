@@ -200,6 +200,8 @@
 
         window.$ = window.jQuery = require("jquery");
 
+        let state = {};
+
         $(() => {
 
             // When app is ready, the Outdoor page is displayed
@@ -250,6 +252,33 @@
             // On click Outdoor Gate button, the Outdoor Gate section is displayed
             $("#outdoor-menu-gate").click(() => {
                 showOutdoorGate();
+            });
+
+            // On click Outdoor Light Group One button in menu, a message is sent to server to turn on the lights
+            $("#outdoor-light-group-one").click(() => {
+                if (state.lightGroupOne === "ON") {
+                    sendSensorState("LIGHTGROUP1#OFF");
+                } else {
+                    sendSensorState("LIGHTGROUP1#ON");
+                }
+            });
+
+            // On click Outdoor Light Group Two button in menu, a message is sent to server to turn on the lights
+            $("#outdoor-light-group-two").click(() => {
+                if (state.lightGroupTwo === "ON") {
+                    sendSensorState("LIGHTGROUP2#OFF");
+                } else {
+                    sendSensorState("LIGHTGROUP2#ON");
+                }
+            });
+
+            // On click Outdoor Light Group Three button in menu, a message is sent to server to turn on the lights
+            $("#outdoor-light-group-three").click(() => {
+                if (state.lightGroupThree === "ON") {
+                    sendSensorState("LIGHTGROUP3#OFF");
+                } else {
+                    sendSensorState("LIGHTGROUP3#ON");
+                }
             });
 
             // Every 500 ms the state of sensors is updated
@@ -344,33 +373,45 @@
             ipcRenderer.send("update-sensors-state")
         }
 
-        // Starting from a given state the GUI is updated
-        const updateSensorsState = (listener, state) => {
+        // Ask to server to set a sensor state
+        const sendSensorState = data => {
+            ipcRenderer.send("send-sensor-state", data)
+        }
 
-            // First of all it deactivate all sensors buttons
-            $("#outdoor-light-group-one").removeClass("is-active");
-            $("#outdoor-light-group-two").removeClass("is-active");
-            $("#outdoor-light-group-three").removeClass("is-active");
-            $("#outdoor-gate-button").removeClass("is-active");
+        // Starting from a given state the GUI is updated
+        const updateSensorsState = (listener, data) => {
+
+            // The global state is set to be used in read
+            state = data
+
+            console.log(data)
 
             // Activate Light Group One button if state is "ON"
             if (state.lightGroupOne === "ON") {
                 $("#outdoor-light-group-one").addClass("is-active");
+            } else {
+                $("#outdoor-light-group-one").removeClass("is-active");
             }
 
             // Activate Light Group One button if state is "ON"
             if (state.lightGroupTwo === "ON") {
                 $("#outdoor-light-group-two").addClass("is-active");
+            } else {
+                $("#outdoor-light-group-two").removeClass("is-active");
             }
 
             // Activate Light Group Three button if state is "ON"
             if (state.lightGroupThree === "ON") {
                 $("#outdoor-light-group-three").addClass("is-active");
+            } else {
+                $("#outdoor-light-group-three").removeClass("is-active");
             }
 
             // Activate Gate button if state is "ON"
             if (state.gate === "ON") {
                 $("#outdoor-gate-button").addClass("is-active");
+            } else {
+                $("#outdoor-gate-button").removeClass("is-active");
             }
         }
 
