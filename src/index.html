@@ -256,7 +256,7 @@
             setInterval(readSensorsState, 500);
 
             // Read the state from server
-            ipcRenderer.on("sensors-state-updated", state => alert("foo"));
+            ipcRenderer.on("sensors-state-updated", updateSensorsState);
         });
 
         // Shows the Outdoor page
@@ -342,6 +342,21 @@
         // Ask to server to read sensors state
         const readSensorsState = () => {
             ipcRenderer.send("update-sensors-state")
+        }
+
+        // Starting from a given state the GUI is updated
+        const updateSensorsState = (listener, state) => {
+
+            console.log(state)
+
+            $("#outdoor-light-group-one").removeClass("is-active");
+            $("#outdoor-light-group-two").removeClass("is-active");
+            $("#outdoor-light-group-three").removeClass("is-active");
+            $("#outdoor-gate-button").removeClass("is-active");
+
+            if (state.lightGroupOne === "ON") {
+                $("#outdoor-light-group-one").addClass("is-active");
+            }
         }
 
     </script>

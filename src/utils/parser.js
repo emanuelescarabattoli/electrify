@@ -3,7 +3,7 @@
 const parseState = stateString => {
     let state = {};
     const states = stateString.split(";");
-    return states.map(item => {
+    states.map(item => {
         const stateValue = item.split("#");
         switch (stateValue[0]) {
             case "LIGHTGROUP1":
@@ -20,6 +20,7 @@ const parseState = stateString => {
                 break;
         }
     });
+    return state;
 }
 
 // Export of utils
