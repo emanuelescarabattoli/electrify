@@ -13,7 +13,7 @@ const parseState = stateString => {
                 state.lightGroupTwo = stateValue[1];
                 break;
             case "LIGHTGROUP3":
-                state.lightGroupGate = stateValue[1];
+                state.lightGroupThree = stateValue[1];
                 break;
             case "GATE":
                 state.gate = stateValue[1];

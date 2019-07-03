@@ -253,7 +253,7 @@
             });
 
             // Every 500 ms the state of sensors is updated
-            setInterval(readSensorsState, 500);
+            setInterval(readSensorsState, 100);
 
             // Read the state from server
             ipcRenderer.on("sensors-state-updated", updateSensorsState);
@@ -356,6 +356,18 @@
 
             if (state.lightGroupOne === "ON") {
                 $("#outdoor-light-group-one").addClass("is-active");
+            }
+
+            if (state.lightGroupTwo === "ON") {
+                $("#outdoor-light-group-two").addClass("is-active");
+            }
+
+            if (state.lightGroupThree === "ON") {
+                $("#outdoor-light-group-three").addClass("is-active");
+            }
+
+            if (state.gate === "ON") {
+                $("#outdoor-gate-button").addClass("is-active");
             }
         }
 
